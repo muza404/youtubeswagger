@@ -151,3 +151,22 @@ input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: orange;
     font-size: 17px;
 }
+
+.movie img {
+    display: block;
+}
+
+.append p {
+    width: 100%;
+    text-align: center;
+}
+
+.prev:disabled,
+.next:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.btns, .btn, .prev, .next {
+    cursor: pointer;
+}
