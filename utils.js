@@ -1,8 +1,7 @@
-// ===== utils.js: yordamchi funksiyalar =====
+
 
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
-// Posteri yo'q kinolar uchun oddiy rasm (internet kerak emas)
 const NO_POSTER =
   "data:image/svg+xml;utf8," +
   "<svg xmlns='http://www.w3.org/2000/svg' width='300' height='450'>" +
@@ -10,7 +9,6 @@ const NO_POSTER =
   "<text x='50%' y='50%' fill='orange' font-size='24' text-anchor='middle'>No poster</text>" +
   "</svg>";
 
-// 1) API'dan ma'lumot olish
 async function getMovies(url) {
   const res = await fetch(url);
   if (!res.ok) {
@@ -19,7 +17,6 @@ async function getMovies(url) {
   return res.json();
 }
 
-// 2) Filtrlash: min/max = chiqqan yil oralig'i, score = eng kam reyting
 function filterMovies(movies, { min, max, score }) {
   return movies.filter(function (movie) {
     const year = Number((movie.release_date || "").slice(0, 4)) || 0;
@@ -32,7 +29,6 @@ function filterMovies(movies, { min, max, score }) {
   });
 }
 
-// 3) Kichik yordamchi: element yaratish
 function create(tag, className, text) {
   const el = document.createElement(tag);
   if (className) el.className = className;
@@ -40,7 +36,6 @@ function create(tag, className, text) {
   return el;
 }
 
-// 4) Kartochkalarni ekranga chizish
 function renderMovies(box, movies) {
   box.innerHTML = "";
 
@@ -64,7 +59,6 @@ function renderMovies(box, movies) {
   });
 }
 
-// 5) Xabar chiqarish (Loading, xato, topilmadi)
 function showMessage(box, text) {
   box.innerHTML = "";
   const p = create("p", "", text);
